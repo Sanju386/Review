@@ -1,37 +1,14 @@
 import React, { useState } from "react";
 import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
 import { datalist } from "./data";
+import useReview from "./useReview";
 
 
 const Review = () => {
 
-
-const[index, setIndex] = useState(0)
-console.log(index)
-
-const item = datalist[index]
-console.log(item)
+const {handlePrev,handleNext,handleSurprise,item} = useReview()
 
 
-
-const handleNext = ()=>{
- 
-  setIndex((prev)=>{
-    return  prev = (prev + 1) % datalist.length
-  })
-}
-
-const handlePrev = ()=>{
-  setIndex((prev)=>{
-    return  prev = (prev - 1 < 0) ?  datalist.length -1 : prev - 1
-  })
-}
-
-
-const handleSurprise = ()=>{
-  setIndex(Math.floor(Math.random() * datalist.length))
-}
-    
   return (
     <main>
       <article className="review">
